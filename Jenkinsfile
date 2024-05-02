@@ -6,12 +6,12 @@ pipeline {
   stages {
    stage('Build Application') {
       steps {
-        sh 'mvn clean install'
+        sh 'mvn clean install -X'
       }  
     }
     stage('Deploy CloudHub') {
       environment {
-        ANYPOINT_CREDENTIALS = credentials('5ba4d46c-dc9e-4da5-8e13-6ce94e6f4cc6')
+        ANYPOINT_CREDENTIALS = credentials('5528fbc5-0792-4dfa-9a8f-62d8675dd8c0')
       }
       steps {
         sh "mvn deploy -DmuleDeploy -Dcloud.env=Sandbox -DcloudhubAppName=accounts-raml-helloworld -Dmule.version=4.3.0 -Dcloud.user=${ANYPOINT_CREDENTIALS_USR} -Dcloud.password=${ANYPOINT_CREDENTIALS_PSW}"
