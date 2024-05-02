@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Deploy CloudHub') {
       environment {
-        ANYPOINT_CREDENTIALS = credentials('5528fbc5-0792-4dfa-9a8f-62d8675dd8c0')
+        ANYPOINT_CREDENTIALS = credentials('26cda562-2822-46ff-b391-4c5bb8384d5b')
       }
       steps {
         sh "mvn deploy -DmuleDeploy -Dcloud.env=Sandbox -DcloudhubAppName=accounts-raml-helloworld -Dmule.version=4.3.0 -Dcloud.user=${ANYPOINT_CREDENTIALS_USR} -Dcloud.password=${ANYPOINT_CREDENTIALS_PSW}"
